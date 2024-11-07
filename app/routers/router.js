@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const juegos = require('../controllers/juego.controller.js');
+const juegos = require('../controllers/juegos.controller.js');
 
 
 router.post('/api/juegos/create', juegos.create);
