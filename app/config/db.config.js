@@ -4,20 +4,18 @@ const Sequelize = require('sequelize');
 const sequelize = new Sequelize(env.database, env.username, env.password, {
   host: env.host,
   dialect: env.dialect,
-  dialectOptions:{
+  dialectOptions: {
     ssl: {
       require: true,
-      rejectUnauthorized: false
-    }
+      rejectUnauthorized: false,
+    },
   },
-
- 
   pool: {
     max: env.max,
     min: env.pool.min,
     acquire: env.pool.acquire,
     idle: env.pool.idle,
-  }
+  },
 });
 
 const db = {};
@@ -25,6 +23,6 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
  
-de.Juego = require('../models/juegos.model.js')(sequelize, Sequelize);
+db.Juego = require('../models/juegos.model.js')(sequelize, Sequelize);
 
 module.exports = db;
